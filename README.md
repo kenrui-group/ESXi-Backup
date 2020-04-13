@@ -8,7 +8,12 @@ The ubiquitous and well known Veeam solution is probably a better off solution f
 Read 'Backup Server Setup' section below before proceeding.
 
 ## Normal VMs
-* Download both backup and scripts folder into the datastore.  For example `/vmfs/volumes/datastore1`.
+* Download the scripts folder into the datastore, and create a backup folder (Git doesn't allow commiting empty directory).  For example:
+```bash
+/vmfs/volumes/datastore1/scripts
+/vmfs/volumes/datastore1/backup
+```
+
 * Assuming the name of a VM is 'Corp Production Web Server' and the remote backup server IP is 10.1.6.7, run the following command:
 ```bash
 /vmfs/volumes/datastore1/scripts/backup-vm.sh "Corp Production Web Server" scp 10.1.6.7 /vmfs/volumes/datastore1
